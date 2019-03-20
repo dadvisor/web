@@ -1,2 +1,7 @@
 # web
-A simple web-service that returns 'Ok'
+A simple Python web-service that always returns 'Ok'
+
+## How to run?
+Use the following command to run this container:
+
+	docker-compose up -d
