@@ -7,4 +7,4 @@ RUN pip install flask
 
 EXPOSE 6000
 
-CMD ["python", "app.py"]
+CMD ["python", "-u", "app.py"]
