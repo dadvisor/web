@@ -4,7 +4,7 @@ services:
     container_name: web
     image: dadvisor/web:latest
     ports:
-      - 5000:5000
+      - 6000:6000
   req:
     image: dadvisor/req:latest
     depends_on:
