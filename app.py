@@ -6,10 +6,13 @@ from loadThread import LoadThread
 
 app = Flask(__name__)
 
+ITERATIONS = os.environ.get('ITERATIONS', 10**8)
+print('Iterations: {}'.format(ITERATIONS))
+
 
 @app.route('/')
 def home():
-    LoadThread(os.environ.get('ITERATIONS', 10**8)).start()
+    LoadThread(ITERATIONS).start()
     return 'Ok'
 
 
