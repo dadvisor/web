@@ -1,12 +1,12 @@
 import os
 
-from flask import Flask
+from flask import Flask, request
 
 from loadThread import LoadThread
 
 app = Flask(__name__)
 
-ITERATIONS = int(os.environ.get('ITERATIONS', 10**7))
+ITERATIONS = int(os.environ.get('ITERATIONS', 10 ** 7))
 print('Iterations: {}'.format(ITERATIONS))
 
 
@@ -15,6 +15,16 @@ def home():
     if ITERATIONS > 0:
         LoadThread(ITERATIONS).start()
     return 'Ok'
+
+
+@app.route('/with_load')
+def with_load():
+    try:
+        load = int(request.args.get('load', default='1'))
+    except Exception as e:
+        print(e)
+        load = 1
+    return '*' * load
 
 
 if __name__ == '__main__':
